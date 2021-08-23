@@ -8,6 +8,7 @@ import ShowScreen from './src/screens/ShowScreen'
 const navigator = createStackNavigator(
   {
     Index: IndexScreen,
+    Show: ShowScreen
   },
   {
     initialRouteName: 'Index',
