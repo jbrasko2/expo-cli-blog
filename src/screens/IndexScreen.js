@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { Context as BlogContext } from '../context/BlogContext'
 import { Feather } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
 
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext)
@@ -40,6 +41,16 @@ const IndexScreen = ({ navigation }) => {
   )
 }
 
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <AntDesign name='pluscircleo' style={styles.plus} />
+      </TouchableOpacity>
+    ),
+  }
+}
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -54,6 +65,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 24,
+  },
+  plus: {
+    fontSize: 24,
+    marginRight: 15,
   },
 })
 
