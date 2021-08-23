@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { Context as BlogContext } from '../context/BlogContext'
+import { Entypo } from '@expo/vector-icons'
 
 const ShowScreen = ({ navigation }) => {
   const { state } = useContext(BlogContext)
@@ -16,6 +17,21 @@ const ShowScreen = ({ navigation }) => {
   )
 }
 
-const styles = StyleSheet.create({})
+ShowScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+        <Entypo name='pencil' style={styles.pencil} />
+      </TouchableOpacity>
+    ),
+  }
+}
+
+const styles = StyleSheet.create({
+  pencil: {
+    fontSize: 24,
+    marginRight: 15,
+  },
+})
 
 export default ShowScreen
